@@ -1,1 +1,141 @@
+/* CSS reset */
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global variables */
+
+:root {
+  --global-padding: 3rem clamp(1rem, -0.021rem + 3.403vi, 4.063rem);
+  --hero-padding: 12rem clamp(1rem, -0.021rem + 3.403vi, 4.063rem) 3rem;
+}
+
+/* Default container styling */
+
+.hero-section {
+  width: 100%;
+  height: auto;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--hero-padding);
+}
+
+.default-section {
+  width: 100%;
+  height: auto;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--global-padding);
+}
+
+body {
+  width: 100vw;
+  background: linear-gradient(45deg, hsl(105deg 40% 55%), hsl(200deg 51% 64%)) fixed no-repeat;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+/* Typography styling */
+
+h1, h2 {
+  font-weight: 700;
+  color: AliceBlue;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 1.6rem + 1vw, 2.8rem);
+  line-height: 1.48;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 1.2rem + 0.3333vw, 1.6rem);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: clamp(1rem, 0.96rem + 0.1333vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.38;
+  color: AliceBlue;
+  margin-bottom: 1rem;
+}
+
+/* Global table styling */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: hsla(208, 100%, 97%, 0.4);
+  color: hsl(208, 20%, 10%);
+  font-size: clamp(1rem, 0.96rem + 0.1333vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.38;
+}
+
+thead {
+  background-color: hsla(208, 100%, 97%, 0.4);
+}
+
+th {
+  font-weight: 400;
+}
+
+thead th {
+  font-weight: 600;
+}
+
+th, td {
+  padding: 0.6rem;
+  border: 0.02rem solid hsla(208, 100%, 97%, 0.4);
+}
+
+.code {
+  font-family: 'Space Mono', 'Courier New';
+  background-color: hsla(200, 50%, 60%, 0.3);
+}
+
+/* Making table responsive. Inspiration from Kevin Powell (https://www.youtube.com/watch?v=czZ1PvNW5hk) */
+
+@media (max-width: 800px) {
+  table {
+    background-color: transparent;
+  }
+
+  tr {
+    display: block;
+    background-color: hsla(208, 100%, 97%, 0.4);
+    margin-bottom: 1rem;
+  }
+
+  thead {
+    display: none;
+  }
+
+  th,
+  td {
+    display: block;
+  }
+
+  th::before,
+  td::before {
+    content: attr(data-cell);
+    font-weight: 600;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Semantic and non-semantic element sections */
+
+#semantic-elements-section,
+#non-semantic-elements-section {
+  display: flex;
+  flex-direction: column;
+}
